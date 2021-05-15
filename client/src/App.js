@@ -1,23 +1,30 @@
+import {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [groceries, setGroceries] = useState([
+    {
+      item: '',
+      amount: '',
+      category: '',
+    }
+  ])
+
+    //fetch the data from the route and return a json
+    useEffect(() => {
+      fetch('/groceries').then(res => {
+        if(res.ok) {
+          return res.json()
+        }
+        //take json response and set state equal to the json response
+      }).then(jsonRes => setGroceries(jsonRes))
+    })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {groceries.map(grocery => {
+        return <h1>{grocery.item}</h1>
+      })}
     </div>
   );
 }
