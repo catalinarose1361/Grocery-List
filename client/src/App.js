@@ -20,10 +20,18 @@ function App() {
         //take json response and set state equal to the json response
       }).then(jsonRes => setGroceries(jsonRes))
     })
+    
   return (
     <div className="App">
       {groceries.map(grocery => {
-        return <h1>{grocery.item}</h1>
+        return (
+        <div>
+
+          <h1>{grocery.item}</h1>
+          <p>{grocery.amount}</p>
+          <p>{grocery.category}</p>
+        </div>
+        )
       })}
     </div>
   );
