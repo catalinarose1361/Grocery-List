@@ -30,6 +30,7 @@ function App() {
           <h1>{grocery.item}</h1>
           <p>{grocery.amount}</p>
           <p>{grocery.category}</p>
+          <button>DELETE</button>
         </div>
         )
       })}
