@@ -42,6 +42,17 @@ app.post('/newgrocery', function(req, res) {
 
 })
 
+    //DELETE ITEM
+    app.delete('/delete/:id', function(req, res) {
+         const id = req.params.id;
+         Grocery.findByIdAndDelete({_id: id}, function(err) {
+             if(!err) {
+                 console.log("item removed");
+             } else {
+                 console.log(err)
+            }
+        })
+    })
 app.listen(port, function() {
     console.log("EXPRESS SERVER is running");
 })

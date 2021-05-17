@@ -55,7 +55,12 @@ function App() {
     }
 
     axios.post('/newgrocery', newGrocery)
-    alert("Grocery Item Added");
+    alert("Grocery Item Added To List");
+  }
+
+  function deleteGrocery(id) {
+    axios.delete('/delete/' + id);
+    alert("Grocery Item Deleted From List")
   }
 
   return (
@@ -74,7 +79,7 @@ function App() {
           <h1>{grocery.item}</h1>
           <p>{grocery.amount}</p>
           <p>{grocery.category}</p>
-          <button>DELETE</button>
+          <button onClick={() => deleteGrocery(grocery._id)}>DELETE</button>
 
         </div>
         )
