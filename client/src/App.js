@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { Checkbox } from 'antd';
+
 
 function App() {
   const [groceries, setGroceries] = useState([
@@ -63,6 +65,9 @@ function App() {
     alert("Grocery Item Deleted From List")
   }
 
+  function onChange(e) {
+    console.log(`checked = ${e.target.checked}`);
+  }
   return (
     <div className="App">
       <h1>ADD ITEM TO GROCERY LIST</h1>
@@ -75,11 +80,11 @@ function App() {
       {groceries.map(grocery => {
         return (
         <div>
-
+          <Checkbox onChange={() => deleteGrocery(grocery._id)}></Checkbox>
           <h1>{grocery.item}</h1>
           <p>{grocery.amount}</p>
           <p>{grocery.category}</p>
-          <button onClick={() => deleteGrocery(grocery._id)}>DELETE</button>
+          {/* <button onClick={() => deleteGrocery(grocery._id)}>DELETE</button> */}
 
         </div>
         )
