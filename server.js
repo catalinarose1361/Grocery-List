@@ -4,13 +4,14 @@ const mongoose = require("mongoose")
 const cors = require("cors");
 const path = require("path");
 const port = process.env.PORT || 5000;
+require('dotenv').config()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 app.use(cors());
 
 //mongoose
-mongoose.connect("mongodb+srv://catalina-admin:fliaJUchyWudg52g@cluster0.xttdr.mongodb.net/groceriesDB?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGODB_URI)
 
 //data schema and model 
 const grocerySchema = {
