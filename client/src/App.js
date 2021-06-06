@@ -104,7 +104,7 @@ function App() {
                 title={item.item}
                 description={item.amount}
               />
-              <Checkbox onChange={() => deleteGrocery(grocery._id)}></Checkbox>
+              <Checkbox onChange={() => deleteGrocery(item._id)}></Checkbox>
             
           </List.Item>
            )}

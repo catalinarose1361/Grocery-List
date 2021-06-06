@@ -7,7 +7,7 @@ const Grocery = require("../models")
 router.get('/groceries', function(req, res) {
 
     //SEND A RESPONSE TO THE FRONT END IN JSON FORMAT
-    Grocery.find().then(grocery => res.json(groceries));
+    Grocery.find().then(groceries => res.json(groceries));
 });
 
 // ADD MOVIE
