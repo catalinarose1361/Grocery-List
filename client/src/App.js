@@ -2,8 +2,9 @@ import {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { Checkbox } from 'antd';
+import { Checkbox, Form, Input, Button, Col, Row, List, Layout } from 'antd';
 
+const { Header, Content, Footer } = Layout;
 
 function App() {
   const [groceries, setGroceries] = useState([
@@ -69,27 +70,52 @@ function App() {
     console.log(`checked = ${e.target.checked}`);
   }
   return (
-    <div className="App">
-      <h1>ADD ITEM TO GROCERY LIST</h1>
-      <form>
-        <input onChange={handleChange} name="item" value={grocery.item}></input>
-        <input onChange={handleChange} name="amount" value={grocery.amount}></input>
-        <input onChange={handleChange} name="category" value={grocery.category}></input>
-        <button onClick={addGrocery}>ADD ITEM</button>
-      </form>
-      {groceries.map(grocery => {
-        return (
-        <div>
-          <Checkbox onChange={() => deleteGrocery(grocery._id)}></Checkbox>
-          <h1>{grocery.item}</h1>
-          <p>{grocery.amount}</p>
-          <p>{grocery.category}</p>
-          {/* <button onClick={() => deleteGrocery(grocery._id)}>DELETE</button> */}
 
-        </div>
-        )
-      })}
-    </div>
+    <Layout className="layout">
+    <Header>
+     <h1>Grocery List</h1>
+     
+    </Header>
+    <Content style={{ padding: '0 50px' }}>
+    <Row>
+      <Col>
+      <h1>ADD ITEM TO GROCERY LIST</h1>
+      <Form>
+        <Input onChange={handleChange} name="item" value={grocery.item}></Input>
+        <Input onChange={handleChange} name="amount" value={grocery.amount}></Input>
+        <Input onChange={handleChange} name="category" value={grocery.category}></Input>
+        <Button onClick={addGrocery}>ADD ITEM</Button>
+      </Form>
+      </Col>
+
+      <Col>
+  
+              <List
+        className="demo-loadmore-list"
+       
+        itemLayout="vertical"
+        
+        dataSource={groceries}
+        renderItem={item => (
+          <List.Item>
+            
+              <List.Item.Meta
+               
+                title={item.item}
+                description={item.amount}
+              />
+              <Checkbox onChange={() => deleteGrocery(grocery._id)}></Checkbox>
+            
+          </List.Item>
+           )}
+           />
+      </Col>
+      </Row>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+  </Layout>
+  
+    
   );
 }
 

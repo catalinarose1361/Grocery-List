@@ -1,26 +1,20 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose")
 const cors = require("cors");
 const path = require("path");
 const port = process.env.PORT || 5000;
+const mongoose = require("mongoose");
+const Grocery = require("./models")
+
 require('dotenv').config()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
+
 app.use(cors());
 
-//mongoose
+//MONGODB ATLAS CONNECTION STRING
 mongoose.connect(process.env.MONGODB_URI)
-
-//data schema and model 
-const grocerySchema = {
-    item: String,
-    amount: String,
-    category: String,
-}
-
-const Grocery = mongoose.model("Grocery", grocerySchema);
 
 //API routes
 app.get('/groceries', function(req, res) {
