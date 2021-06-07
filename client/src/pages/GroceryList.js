@@ -102,14 +102,14 @@ const GroceryList = () => {
  
 
     return (
-        <Layout className="layout">
-             <Header>
-              <h1>Grocery List</h1>
+       
+            
              
-             </Header>
-             <Content style={{ padding: '0 50px' }}>
-             <Row>
-               <Col>
+           <Row>
+         
+           <Col span={6}>
+
+               
              
         <AddGroceryForm 
       
@@ -118,13 +118,12 @@ const GroceryList = () => {
         addGrocery={addGrocery}
         
         />
+        </Col>  
 
    
       
             
-               </Col>
-        
-               <Col>
+           <Col span={18}>
              
                <ViewAll 
        
@@ -134,31 +133,12 @@ const GroceryList = () => {
         />
   
           
-                       {/* <List
-                 className="demo-loadmore-list"
-               
-                 itemLayout="vertical"
-                
-                 dataSource={groceries}
-                 renderItem={item => (
-                   <List.Item>
-                    
-                       <List.Item.Meta
-                       
-                         title={item.item}
-                         description={item.amount}
-                       />
-                       <Checkbox onChange={() => deleteGrocery(item._id)}></Checkbox>
-                    
-                   </List.Item>
-                    )}
-                    />
-                */}
-                </Col>
-               </Row>
-             </Content>
-             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-           </Layout>
+  </Col>    
+  </Row>
+              
+          
+             
+          
     )
 };
 

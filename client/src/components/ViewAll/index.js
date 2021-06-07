@@ -1,28 +1,37 @@
 import React from "react";
-import { Checkbox, Form, Input, Button, Col, Row, List, Layout } from 'antd';
+import { Checkbox, Form, Input, Button, Col, Row, List, Layout, Card } from 'antd';
 
+
+
+const { Header, Footer, Sider, Content } = Layout;
 function ViewAll(props) {
     
     return(
-        <List
+       
+            <List
                  className="demo-loadmore-list"
-               
-                 itemLayout="vertical"
+                 grid={{ gutter: 9, column: 2 }}
+                
                 
                  dataSource={props.groceries}
                  renderItem={item => (
                    <List.Item>
-                    
+                    <Card title={item.item}>
+                    quantity needed:  {item.amount}
+                    category: {item.category}
+                    </Card>
                        <List.Item.Meta
                        
-                         title={item.item}
-                         description={item.amount}
+                         
+                        
                        />
                        <Checkbox onChange={() => props.deleteGrocery(item._id)}></Checkbox>
                     
                    </List.Item>
                     )}
                     />
+       
+        
     )
 }
 
