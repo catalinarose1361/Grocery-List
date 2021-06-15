@@ -6,16 +6,16 @@ import NavBar from "./components/NavBar";
 import NoMatch from "./pages/NoMatch";
 import './App.css';
 import { Layout } from 'antd';
+const { Header, Content, Footer } = Layout;
 
-const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
     <Router>
-      <Layout>
+      <Layout className="layout">
         <Header>
         <NavBar />
         </Header>
-        <Content>
+        <Content style={{ padding: '0 50px' }}>
         <Switch>
           
           <Route exact path="/" component={LandingPage} />
@@ -25,7 +25,7 @@ function App() {
         
         </Switch>
         </Content>
-        <Footer></Footer>
+        <Footer style={{ textAlign: 'center' }} > Developed by Catalina Williams www.hirecatalina.com </Footer>
       </Layout>
     </Router>
   )

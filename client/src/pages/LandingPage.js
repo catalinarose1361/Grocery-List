@@ -12,7 +12,9 @@ const LandingPage = () => {
   sed do eiusmod tempor incididunt ut
   labore et dolore magna aliqua.
 </p>
-<button src="/groceryList" > Let's Get Started</button>
+<button  >  <a href="/groceryList" >
+            Go To List
+          </a></button>
  
 </div>
     )
