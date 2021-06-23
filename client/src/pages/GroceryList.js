@@ -13,9 +13,7 @@ const GroceryList = () => {
     // NOTE THE ARRAY OF OBJECTS
   const [groceries, setGroceries] = useState([
     {
-      item: " ",
-      amount: " ",
-      category: " "
+      item: " "
     }
   ]);
 
@@ -23,9 +21,7 @@ const GroceryList = () => {
   //NOTE THE SINGLE OBJECT
   const [grocery, setGrocery] = useState(
     {
-      item: " ",
-      amount: " ",
-      category: " ",
+      item: " "
     }
   );
 
@@ -78,9 +74,7 @@ const GroceryList = () => {
         //GETS VALUES FROM STATE VARIABLE 'grocery'
         const newGrocery = {
 
-            item: grocery.item,
-            amount: grocery.amount,
-            category: grocery.category
+            item: grocery.item
 
         };
 
@@ -107,7 +101,7 @@ const GroceryList = () => {
              
            <Row>
          
-           <Col span={6}>
+           <Col span={12}>
 
                
              
@@ -123,7 +117,7 @@ const GroceryList = () => {
    
       
             
-           <Col span={18}>
+           <Col span={12}>
              
                <ViewAll 
        

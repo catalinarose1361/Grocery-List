@@ -1,7 +1,7 @@
 import React from "react";
-import { Checkbox, Form, Input, Button, Col, Row, List, Layout, Card } from 'antd';
+import { Checkbox, Form, Input, Button, Col, Row, List, Layout, Card, Typography} from 'antd';
 
-
+const { Title } = Typography;
 
 const { Header, Footer, Sider, Content } = Layout;
 function ViewAll(props) {
@@ -9,22 +9,16 @@ function ViewAll(props) {
     return(
        
             <List
-                 className="demo-loadmore-list"
-                 grid={{ gutter: 9, column: 2 }}
+                 
+                 size="large"
                 
-                
+                 bordered
                  dataSource={props.groceries}
                  renderItem={item => (
                    <List.Item>
-                    <Card title={item.item}>
-                    quantity needed:  {item.amount}
-                    category: {item.category}
-                    </Card>
-                       <List.Item.Meta
-                       
-                         
-                        
-                       />
+                        <Title>{item.item}</Title>
+                    
+                     
                        <Checkbox onChange={() => props.deleteGrocery(item._id)}></Checkbox>
                     
                    </List.Item>

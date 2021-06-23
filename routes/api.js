@@ -17,15 +17,14 @@ router.post('/newGrocery', function(req, res) {
 
    //DECONSTRUCTING THE OBJECT SENT FROM THE FRONT END
    const item = req.body.item;
-   const amount = req.body.amount;
-   const category = req.body.category;
+ 
    
    //CREATING A NEW MOVIE TO ADD TO MONGODB USING MOVIE MODEL
-   const newGrocery = new Grocery({
-       item,
-       amount,
-       category
-   })
+   const newGrocery = new Grocery(
+     
+           item
+       
+   )
 
     //SAVING NEW MOVIE TO MONGODB ATLAS
     newGrocery.save()

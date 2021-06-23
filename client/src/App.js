@@ -15,7 +15,7 @@ function App() {
         <Header>
         <NavBar />
         </Header>
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{ minHeight: '900px'}}>
         <Switch>
           
           <Route exact path="/" component={LandingPage} />
@@ -25,7 +25,7 @@ function App() {
         
         </Switch>
         </Content>
-        <Footer style={{ textAlign: 'center' }} > Developed by Catalina Williams www.hirecatalina.com </Footer>
+        <Footer style={{ textAlign: 'center', position: "sticky", background: '#fff' }} > Developed by Catalina Williams www.hirecatalina.com </Footer>
       </Layout>
     </Router>
   )

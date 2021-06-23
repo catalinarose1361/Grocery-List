@@ -8,15 +8,6 @@ const GrocerySchema = new Schema({
     item: {
         type: String,
         required: "Item is Required"
-    },
-
-    amount: {
-        type: String,
-        required: "Amount is Required"
-    },
-    category: {
-        type: String,
-        required: "Category is Required"
     }
 })
 
