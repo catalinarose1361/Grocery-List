@@ -1,11 +1,12 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import { Col, Row, } from 'antd';
+import { Col, Row, Typography } from 'antd';
+
 
 
 import ViewAll from "../components/ViewAll";
 import AddGroceryForm from "../components/AddGroceryForm"
-
+const { Text } = Typography
 const GroceryList = () => {
 
      //HERE WE ARE USING STATE WHICH AT FIRST IS EMPTY BUT 
@@ -13,7 +14,8 @@ const GroceryList = () => {
     // NOTE THE ARRAY OF OBJECTS
   const [groceries, setGroceries] = useState([
     {
-      item: " "
+      item: '',
+      price: ''
     }
   ]);
 
@@ -21,9 +23,15 @@ const GroceryList = () => {
   //NOTE THE SINGLE OBJECT
   const [grocery, setGrocery] = useState(
     {
-      item: " "
+      item: '',
+      price: ''
     }
   );
+
+  const priceTotal = groceries.reduce(function(prev, cur) {
+    return prev + cur.price;
+  }, 0);
+
 
   //FETCH THE MONGODB DATA FROM THE ROUTE AND SET THE 
   //RESPONSE IN JSON FORMAT
@@ -74,7 +82,8 @@ const GroceryList = () => {
         //GETS VALUES FROM STATE VARIABLE 'grocery'
         const newGrocery = {
 
-            item: grocery.item
+            item: grocery.item,
+            price: grocery.price
 
         };
 
@@ -93,8 +102,7 @@ const GroceryList = () => {
 
     };
 
- 
-
+   
     return (
        
             
@@ -112,6 +120,8 @@ const GroceryList = () => {
         addGrocery={addGrocery}
         
         />
+      <Text>Budget Total: {priceTotal}</Text>
+
         </Col>  
 
    

@@ -1,7 +1,7 @@
 import React from "react";
 import { Checkbox, Form, Input, Button, Col, Row, List, Layout, Card, Typography} from 'antd';
 
-const { Title } = Typography;
+const { Title, Text} = Typography;
 
 const { Header, Footer, Sider, Content } = Layout;
 function ViewAll(props) {
@@ -17,6 +17,7 @@ function ViewAll(props) {
                  renderItem={item => (
                    <List.Item>
                         <Title>{item.item}</Title>
+                        <Text type="warning">Est. Price: ${item.price}</Text>
                     
                      
                        <Checkbox onChange={() => props.deleteGrocery(item._id)}></Checkbox>

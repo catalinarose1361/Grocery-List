@@ -10,19 +10,27 @@ function AddGroceryForm(props) {
     return (
      
                 
-               <Form layout="inline">
-                  <Form.Item>
-                  <Input onChange={props.handleChange} name="item" value={props.grocery.item}></Input>
-                      </Form.Item> 
-                 
-                 
-                
-                 
-                
-                <Form.Item>
-                <Button onClick={props.addGrocery}>ADD ITEM</Button>
+        <Form layout="inline">
 
-                </Form.Item>
+            <Form.Item>
+
+                <Input  onChange={props.handleChange} name="item" value={props.grocery.item}></Input>
+                
+            </Form.Item> 
+            <Form.Item>
+
+                <Input type="number" onChange={props.handleChange} name="price" value={props.grocery.price}></Input>
+
+            </Form.Item> 
+                 
+                 
+                
+                 
+                
+                    <Form.Item>
+                    <Button onClick={props.addGrocery}>ADD ITEM</Button>
+
+                    </Form.Item>
                  
               
                  
