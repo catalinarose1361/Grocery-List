@@ -6,29 +6,49 @@ import NavBar from "./components/NavBar";
 import NoMatch from "./pages/NoMatch";
 import './App.css';
 import { Layout } from 'antd';
+
 const { Header, Content, Footer } = Layout;
 
 function App() {
+
   return (
+
     <Router>
+
       <Layout className="layout">
+
         <Header>
-        <NavBar />
+
+          <NavBar />
+
         </Header>
+
         <Content style={{ minHeight: '900px'}}>
-        <Switch>
+
+          <Switch>
           
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/groceryList" component={GroceryList} />
-          <Route component={NoMatch} />
+            <Route exact path="/" component={LandingPage} />
+
+            <Route exact path="/groceryList" component={GroceryList} />
+
+            <Route component={NoMatch} />
           
-        
-        </Switch>
+          </Switch>
+
         </Content>
-        <Footer style={{ textAlign: 'center', position: "sticky", background: '#fff' }} > Developed by Catalina Williams www.hirecatalina.com </Footer>
+
+        <Footer style={{ textAlign: 'center', position: "sticky", background: '#fff' }} > 
+
+          Developed by Catalina Williams www.hirecatalina.com 
+
+        </Footer>
+
       </Layout>
+
     </Router>
+
   )
+  
 }
 
 export default App;

@@ -4,16 +4,18 @@ const Schema = mongoose.Schema
 //DATA SCHEMA
 const GrocerySchema = new Schema({
 
-    
     item: {
-        type: String,
-        required: "Item is Required"
+
+        type: String 
+
     },
 
     price: {
-        type: Number,
-        required: "Item is Required"
+
+        type: Number
+        
     }
+    
 })
 
 // MONGOOSE MODEL
